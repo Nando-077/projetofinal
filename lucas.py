@@ -7,3 +7,4 @@ valor_aposta = input('Quanto quer apostar?')
 sorteio = random.randint(0,36)
 
 while saldo > 0:
+    
