@@ -18,6 +18,20 @@ while i <= 36:
 #CÓDIGO DO JOGO
 
 while saldo > 0:
+
+# Mensagem inicial:
+
+    print('Seja bem vindo a ROLETA!')
+    print(' ')
+    print('=================================================================================')
+    print(' ')
+    print('Aqui você pode apostar em uma cor ou em um número')
+    print('Os números pares são os VERMELHOS')
+    print('Os números ímpares são os PRETOS')
+    print('Você também pode realizar uma aposta no número 0, que oferece grandes recompensas')
+    print(' ')
+    print('=================================================================================')
+    print('Seu saldo é {}'.format(saldo))
     
 # Fase inicial:
 
@@ -44,18 +58,27 @@ while saldo > 0:
 
         # Se o jogador escolher um número:
         if cor_ou_numero == 'numero':
+            print('O número sorteado foi{}'.format(sorteio))
             if sorteio == escolha_jogador and sorteio != 0:
+                print('Parabéns, você ganhou{}'.format(valor_aposta * 10))
                 saldo += 10 * valor_aposta
+    
             if sorteio == 0 and escolha_jogador == 0:
+                print('Parabéns, você ganhou{}'.format(valor_aposta * 20))
                 saldo += 20 * valor_aposta
             else:
-                saldo -= valor_aposta  
+                print('Você perdeu{}'.format(valor_aposta))
+                saldo -= valor_aposta
+
 
         # Se o jogador escolher uma cor
         elif cor_ou_numero == 'cor':
+            print('A cor sorteada foi{}'.format(cor_sorteio))
             if  cor_escolha == cor_sorteio:
+                print('Parabéns, você ganhou{}'.format(valor_aposta *2))
                 saldo += 2 * valor_aposta
             else:
+                print('Você perdeu{}'.format(valor_aposta))
                 saldo -= valor_aposta
         
         print(saldo)
