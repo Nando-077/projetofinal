@@ -1,11 +1,13 @@
 import random
 
 #Variáveis:
+
 cor_sorteio = ''
 saldo = 1000
 i = 1
 
-# CONSTRUÇÃO DA LISTA DE NÚMEROS DA ROLETA
+# CONSTRUÇÃO DA LISTA DE NÚMEROS DA ROLETA:
+
 lista_vermelho = []
 lista_preto = []
 while i <= 36:
@@ -15,7 +17,7 @@ while i <= 36:
         lista_preto.append(i)
     i += 1
 
-#CÓDIGO DO JOGO
+#CÓDIGO DO JOGO:
 
 while saldo > 0:
 
@@ -36,10 +38,13 @@ while saldo > 0:
 # Fase inicial:
 
     cor_ou_numero = input('Quer apostar em um número ou em uma cor?')
+
     if cor_ou_numero == 'cor':
         cor_escolha = input('vermelho ou preto?')
+
     elif cor_ou_numero == 'numero':
         escolha_jogador = int(input('Escolha um número de 0 a 36'))
+
     valor_aposta = int(input('Quanto quer apostar?'))
 
 # Analise do sorteio: 
@@ -49,36 +54,47 @@ while saldo > 0:
         sorteio = random.randint(0,36)
 
         #Cor do sorteio:
+
         if sorteio in lista_preto:
             cor_sorteio = 'preto'
+
         elif sorteio in lista_vermelho:
             cor_sorteio = 'vermelho'
 
 # Ganho ou Perda:
 
         # Se o jogador escolher um número:
+
         if cor_ou_numero == 'numero':
+
             print('O número sorteado foi{}'.format(sorteio))
+
             if sorteio == escolha_jogador and sorteio != 0:
-                print('Parabéns, você ganhou{}'.format(valor_aposta * 10))
                 saldo += 10 * valor_aposta
+                print('Seu novo saldo é de {}'.format(saldo))
+                print('Parabéns, você ganhou{}'.format(valor_aposta * 10))
     
             if sorteio == 0 and escolha_jogador == 0:
-                print('Parabéns, você ganhou{}'.format(valor_aposta * 20))
                 saldo += 20 * valor_aposta
+                print('Parabéns, você ganhou{}'.format(valor_aposta * 20))
+                print('Seu novo saldo é de {}'.format(saldo))
+            
             else:
-                print('Você perdeu{}'.format(valor_aposta))
                 saldo -= valor_aposta
-
+                print('Você perdeu{}'.format(valor_aposta))
+                print('Seu novo saldo é de {}'.format(saldo))
 
         # Se o jogador escolher uma cor
+
         elif cor_ou_numero == 'cor':
             print('A cor sorteada foi{}'.format(cor_sorteio))
+
             if  cor_escolha == cor_sorteio:
-                print('Parabéns, você ganhou{}'.format(valor_aposta *2))
                 saldo += 2 * valor_aposta
+                print('Parabéns, você ganhou {}'.format(valor_aposta *2))
+                print('Seu novo saldo é de {}'.format(saldo))
+
             else:
-                print('Você perdeu{}'.format(valor_aposta))
                 saldo -= valor_aposta
-        
-        print(saldo)
+                print('Você perdeu {}'.format(valor_aposta))
+                print('Seu novo saldo é de {}'.format(saldo))     
