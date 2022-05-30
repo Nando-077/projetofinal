@@ -1,5 +1,4 @@
 import pygame
-
 pygame.init()
 
 # ----- Gera tela principal
@@ -15,6 +14,12 @@ mesa_2 = pygame.transform.scale(mesa_1, (1000, 500))
 # ------ Carregar a roleta
 roleta_1 = pygame.image.load('roletafinal_.gif').convert()
 roleta_2 = pygame.transform.scale(roleta_1,(250,250))
+# Base do texto
+base1 = pygame.image.load('basef.png').convert()
+base2 = pygame.transform.scale(base1,(1000,150))
+# Texto da tela inicial
+font = pygame.font.SysFont(None, 30)
+text = font.render('Seja bem-vindo a ROLETA', True, (0, 0, 0))
 
 # ===== Loop principal =====
 while game:
@@ -26,9 +31,13 @@ while game:
 
     # ----- Gera saídas
     window.fill((255, 255, 255))  # Preenche com a cor branca
-    window.blit(mesa_2, (10, 10))
-    window.blit(roleta_2, (75,127))
+    window.blit(mesa_2, (0, 0))
+    window.blit(roleta_2, (65,117))
+    window.blit(base2,(0,500))
+    window.blit(text, (25, 520))
 
+    # Base para digitação e texto:
+   
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
 
