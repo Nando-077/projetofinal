@@ -3,11 +3,12 @@ from random import choice
 from time import sleep
 
 
-palavra_secreta = ['geladeira', 'cadeira', 'casa', 'moradia',
- 'churrasco', 'familia', 'ninho', 'teatro','casamento', 'cinema', 'filme',
- 'amarelo', 'azul', 'vermelho','sociedade', 'esporte', 'futebol', 'basquete']
+palavra_secreta = ['sublime', 'cadeira', 'empatia', 'moradia',
+ 'excesso', 'familia', 'parcial', 'alegria','certeza', 'escasso', 'modesto',
+ 'amarelo', 'sentido', 'bizarro','ousadia', 'esporte', 'futebol']
   
-
+ 
+#Seleciona palavra
 
 linhas = []
 letras_escolhidas = []
@@ -20,7 +21,7 @@ le = 0
 palavra_escolhida = list(seleciona_palavra)
 
 ganhou = False
-vidas = 6
+vidas = 5
 
 #Transforma o tamanho da palavra escolhida em traços
 for t in range(0, len(palavra_escolhida)):
@@ -61,7 +62,7 @@ while ganhou == False:
       linhas[t] = palavra_escolhida[t]
       acertou = acertou + 1
  
-  #Tira vida caso a letra n esteja na palavra
+#Tira vida caso a letra não esteja na palavra
   if acertou < 1 and savle not in letras_escolhidas:
     print('\n' * 5)
     print(f"- A letra '{savle.upper()}' não está na palavra \n\n{'-1♥️':^37}","\n" * 6)   
@@ -71,7 +72,7 @@ while ganhou == False:
   else:
     print('\n' * 5)
   
-  #letras ja usadas
+ #letras ja usadas
   if savle in letras_escolhidas:
     print(f"- A letra '{savle.upper()}' já foi usada", "\n" * 5)
     sleep(3)
@@ -84,5 +85,5 @@ while ganhou == False:
       print(linhas[t].upper(), end=' ')
     print('\n')
 
-    print(f'PARABÉNS VOCÊ ACERTOU A PALAVRA: \n{seleciona_palavra.upper()}\n\n')
+    print(f'PARABÉNS VOCÊ GANHOU!! ACERTOU A PALAVRA: \n{seleciona_palavra.upper()}\n\n')
     ganhou = True
