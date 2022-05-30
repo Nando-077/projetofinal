@@ -35,8 +35,6 @@ while game:
     window.blit(roleta_2, (65,117))
     window.blit(base2,(0,500))
     window.blit(text, (25, 520))
-
-    # Base para digitação e texto:
    
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
