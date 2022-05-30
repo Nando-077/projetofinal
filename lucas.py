@@ -1,9 +1,19 @@
 import pygame
 pygame.init()
+import time
 
 # ----- Gera tela principal
 window = pygame.display.set_mode((1000, 650))
 pygame.display.set_caption('Roleta')
+
+#------- Input
+text_ = ''
+font = pygame.font.SysFont(None, 30)
+img = font.render(text_, True, (200,200,200))
+
+rect = img.get_rect()
+rect.topleft = (528, 523)
+cursor = pygame.Rect(rect.topright, (3, rect.height))
 
 # ----- Inicia estruturas de dados
 game = True
@@ -22,17 +32,28 @@ base2 = pygame.transform.scale(base1,(1000,150))
 
 # Texto da tela inicial
 font = pygame.font.SysFont(None, 30)
-text = font.render('Seja bem-vindo a roleta', True, (0, 0, 0))
-text2 = font.render('Na roleta você pode apostar em uma COR (2x) ou em um NÚMERO (10x)', True,(0,0,0))
-text3 = font.render('Aperte a BARRA DE ESPAÇO para começar!', True,(0,0,0))
+text = font.render('Quer apostar em uma COR (2x) ou NÚMERO (10x)?', True, (0, 0, 0))
+text2 = font.render('Quanto quer apostar?', True,(0,0,0))
+text3 = font.render('Seu saldo é:', True,(0,0,0))
 
 # ===== Loop principal =====
-while game:
+while game:   
     # ----- Trata eventos
     for event in pygame.event.get():
         # ----- Verifica consequências
         if event.type == pygame.QUIT:
             game = False
+
+#------- Texto variável
+        if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_BACKSPACE:
+                        if len(text_)>0:
+                            text_ = text_[:-1]
+                    else:
+                        text_ += event.unicode
+                    img = font.render(text_, True, (0,0,0))
+                    rect.size=img.get_size()
+                    cursor.topleft = rect.topright
 
     # ----- Gera saídas
     window.fill((255, 255, 255))  # Preenche com a cor branca
@@ -40,11 +61,17 @@ while game:
     window.blit(roleta_2, (65,117))
     window.blit(base2,(0,500))
 
-    #------ TEXTo
+    #------ Texto não variavel
     window.blit(text, (25, 520))
     window.blit(text2,(25,545))
     window.blit(text3,(25,590))
-   
+
+    # ----- Texto Variável
+    window.blit(img, rect)
+    if time.time() % 1 > 0.5:
+        pygame.draw.rect(window, (0,0,0), cursor)
+
+
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
 
