@@ -5,8 +5,11 @@ import time
 # ----- Variáveis
 choice_cn = "" 
 choice_a = ''
+choice_cn = "" 
+start = ''
 saldo = 1000
 i = 0
+contador = 0
 
 # ----- Funções
 # ----- Lista VOP
@@ -45,19 +48,25 @@ base2 = pygame.transform.scale(base1,(1000,150))
 font = pygame.font.SysFont(None, 28)
 font2 = pygame.font.SysFont(None,25)
 
-#Texto da tela inicial
+#------------ Texto da tela inicial
 
+#------------Não sei
 VOP = ''
 img = font.render(VOP, True, (200,200,200))
 rect = img.get_rect()
-rect.topleft = (425, 520)
+rect.topleft = (418, 522)
 cursor = pygame.Rect(rect.topright, (3, rect.height))
+
+#------------- Textos
 text0 = font.render('Quer apostar no VERMELHO ou PRETO?', True, (0, 0, 0))
 text1 = font.render('Quanto quer apostar?', True,(0,0,0))
-text2 = font.render('Seu saldo é:', True,(0,0,0))
+text2 = font.render('Seu saldo é: {}'.format( saldo), True,(0,0,0))
 text3 = font2.render('|100 = (1)|  |200 = (2)|  |300 = (3)|  |400 = (4)|  |500 = (5)|  |600 = (6)|  |700 = (7)|  |800 = (8)|  |900 = (9)|  |1000 = (0)|', True, (0,0,0))
-text4 = font.render('VERMELHO',True,(0,0,0))
+text4 = font.render('VERMELHO',True,(200,0,0))
 text5 = font.render('PRETO',True,(0,0,0))
+text6 = font.render('Aperte ESPAÇO para girar!', True,(0,0,0))
+
+#-------------- Números
 a100 = font.render('100', True,(0,0,0))
 a200 = font.render('200', True,(0,0,0))
 a300 = font.render('300', True,(0,0,0))
@@ -69,7 +78,6 @@ a800 = font.render('800', True,(0,0,0))
 a900 = font.render('900', True,(0,0,0))
 a1000 = font.render('1000', True,(0,0,0))
 
-choice_cn = "" 
 # ===== Loop principal =====
 while game:
 
@@ -86,38 +94,40 @@ while game:
 #------- Texto variável
         if event.type == pygame.KEYDOWN:
 
-                    if event.key == pygame.K_BACKSPACE:
-                        if len(VOP)>0:
-                            VOP = VOP[:-1]
+            if event.key == pygame.K_BACKSPACE:
+                if len(VOP)>0:
+                    VOP = VOP[:-1]
 
-                    elif event.key == pygame.K_RETURN:
-                        if VOP == 'vermelho':
-                            choice_cn="VERMELHO"
-                        elif VOP == 'preto':
-                            choice_cn="PRETO"
+            elif event.key == pygame.K_RETURN:
+                if VOP == 'vermelho':
+                    choice_cn="VERMELHO"
+                elif VOP == 'preto':
+                    choice_cn="PRETO"
 
-                    elif event.key == pygame.K_0:
-                        choice_a = 1000
-                    elif event.key == pygame.K_1:
-                        choice_a = 100
-                    elif event.key == pygame.K_2:
-                        choice_a = 200
-                    elif event.key == pygame.K_3:
-                        choice_a = 300
-                    elif event.key == pygame.K_4:
-                        choice_a = 400
-                    elif event.key == pygame.K_5:
-                        choice_a = 500    
-                    elif event.key == pygame.K_6:
-                        choice_a = 600
-                    elif event.key == pygame.K_7:
-                        choice_a = 700
-                    elif event.key == pygame.K_8:
-                        choice_a = 800
-                    elif event.key == pygame.K_0:
-                        choice_a = 900
-                    else:
-                        VOP += event.unicode
+            elif event.key == pygame.K_0:
+                choice_a = 1000
+            elif event.key == pygame.K_1:
+                choice_a = 100
+            elif event.key == pygame.K_2:
+                choice_a = 200
+            elif event.key == pygame.K_3:
+                choice_a = 300
+            elif event.key == pygame.K_4:
+                choice_a = 400
+            elif event.key == pygame.K_5:
+                choice_a = 500    
+            elif event.key == pygame.K_6:
+                choice_a = 600
+            elif event.key == pygame.K_7:
+                choice_a = 700
+            elif event.key == pygame.K_8:
+                choice_a = 800
+            elif event.key == pygame.K_9:
+                choice_a = 900
+            elif event.key == pygame.K_SPACE:
+                start = 1
+            else:
+                VOP += event.unicode
                     
     
                     
@@ -131,8 +141,9 @@ while game:
     #------ Texto não variavel
     window.blit(text0, (25, 522))
     window.blit(text1,(25,545))
-    window.blit(text2,(25,610))
-    window.blit(text3,(25, 580))
+    window.blit(text2,(25,600))
+    window.blit(text3,(25, 570))
+    window.blit(text6,(700,600))
 
     # ----- Texto Variavel
     if choice_cn == "":
@@ -145,10 +156,10 @@ while game:
             pygame.draw.rect(window, (0,0,0), cursor)
 
     elif choice_cn=="VERMELHO":
-        window.blit(text4,(425,522))
+        window.blit(text4,(420,522))
     elif choice_cn == "PRETO":
-        window.blit(text5,(425,522 ))
-
+        window.blit(text5,(420,522 ))
+    
     # ----- Escolha da aposta
     if choice_a != '':
         pygame.draw.rect(window, (255,255,255), pygame.Rect(25, 570, 900, 30))
@@ -173,6 +184,25 @@ while game:
         elif choice_a == 1000:
             window.blit(a1000,(25,570))
 
+# Iniciando o Jogo: 
+
+    if start != '':
+
+        # Texto parte nova
+        texto7 = font.render('Você escolheu: {}'.format(choice_cn), True,(0,0,0))
+        texto8 = font.render('Você apostou: {}'.format(choice_a), True, (0,0,0))   
+
+        #Jogo
+        window.blit(base2,(0,500))
+        contador = 1
+
+        if contador != 0:
+            pygame.time.delay(1000)
+            window.blit(texto7,(25,522))
+            window.blit(texto8,(25,545))
+
+        
+        
 
 
 
