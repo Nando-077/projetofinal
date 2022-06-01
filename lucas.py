@@ -1,6 +1,8 @@
 import pygame
-pygame.init()
 import time
+import random
+
+pygame.init()
 
 # ----- Variáveis
 choice_cn = "" 
@@ -10,20 +12,10 @@ start = ''
 saldo = 1000
 i = 0
 contador = 0
+c = 0
+lista = ['VERMELHO','PRETO']
 
 # ----- Funções
-# ----- Lista VOP
-lista_vermelho = []
-lista_preto = []
-
-while i <= 36:
-
-    if i % 2 == 0:
-        lista_vermelho.append(i)
-    elif i % 2 != 0:
-        lista_preto.append(i)
-
-    i += 1
 
 # ----- Gera tela principal
 window = pygame.display.set_mode((1000, 650))
@@ -126,6 +118,9 @@ while game:
                 choice_a = 900
             elif event.key == pygame.K_SPACE:
                 start = 1
+                girando = True
+                sorteou = False
+                ti = time.time()
             else:
                 VOP += event.unicode
                     
@@ -186,20 +181,36 @@ while game:
 
 # Iniciando o Jogo: 
 
+
+
     if start != '':
 
-        # Texto parte nova
+        window.blit(base2,(0,500))
+
+            # Texto parte nova
         texto7 = font.render('Você escolheu: {}'.format(choice_cn), True,(0,0,0))
         texto8 = font.render('Você apostou: {}'.format(choice_a), True, (0,0,0))   
+        texto9 = font.render('A roleta está girando..',True,(0,0,0))
 
-        #Jogo
-        window.blit(base2,(0,500))
-        contador = 1
+        if sorteou == False:
+            sorteio = random.choice(lista)
+            sorteou = True
 
-        if contador != 0:
-            pygame.time.delay(1000)
-            window.blit(texto7,(25,522))
-            window.blit(texto8,(25,545))
+        window.blit(texto7,(25,522))
+        window.blit(texto8,(25,545))
+        window.blit(texto9,(25,570))
+        
+        if time.time() - ti > 2:
+            
+            texto10 = font.render('A roleta sorteou: {}'.format(sorteio), True,(0,0,0))
+            window.blit(texto10,(25,597))
+
+        else:
+            if time.time() % 1 > 0.5:
+                pygame.draw.rect(window,(0,0,0),(229,583,3,3),0)
+
+              
+
 
         
         
