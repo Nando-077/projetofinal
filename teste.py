@@ -42,3 +42,30 @@ while running:
     pygame.display.update()
 
 pygame.quit()
+
+#------- Input
+COR_OU_NUMERO = ''
+font = pygame.font.SysFont(None, 30)
+img = font.render(COR_OU_NUMERO, True, (200,200,200))
+window = 2
+
+#------- Texto variável
+if event.type == pygame.KEYDOWN:
+    if event.key == pygame.K_BACKSPACE:
+        if len(COR_OU_NUMERO)>0:
+            COR_OU_NUMERO = COR_OU_NUMERO[:-1]
+        elif event.key == pygame.K_RETURN:
+            TEXTO_COR_OU_NUMERO = font.render('{}'.format(COR_OU_NUMERO),True,(0,0,0))
+            window.blit(TEXTO_COR_OU_NUMERO,(100,600))
+        else:
+            COR_OU_NUMERO += event.unicode
+            img = font.render(COR_OU_NUMERO, True, (0,0,0))
+            rect.size=img.get_size()
+            cursor.topleft = rect.topright
+
+    # ----- Texto Variavel
+    window.blit(img, rect)
+    if time.time() % 1 > 0.5:
+        pygame.draw.rect(window, (0,0,0), cursor)
+
+
