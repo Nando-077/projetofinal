@@ -14,6 +14,7 @@ i = 0
 contador = 0
 c = 0
 lista = ['VERMELHO','PRETO']
+ganhou = ''
 
 # ----- Funções
 
@@ -116,11 +117,13 @@ while game:
                 choice_a = 800
             elif event.key == pygame.K_9:
                 choice_a = 900
+
             elif event.key == pygame.K_SPACE:
                 start = 1
                 girando = True
                 sorteou = False
                 ti = time.time()
+
             else:
                 VOP += event.unicode
                     
@@ -180,9 +183,6 @@ while game:
             window.blit(a1000,(25,570))
 
 # Iniciando o Jogo: 
-
-
-
     if start != '':
 
         window.blit(base2,(0,500))
@@ -193,21 +193,39 @@ while game:
         texto9 = font.render('A roleta está girando..',True,(0,0,0))
 
         if sorteou == False:
+
             sorteio = random.choice(lista)
+
+            if sorteio == choice_cn:
+                saldo += choice_a * 2
+                texto11 = font.render('Você ganhou: {}'.format(choice_a*2), True, (0,0,0))
+
+            else: 
+                saldo -= choice_a
+                texto11 = font.render('Você perdeu: {}'.format(choice_a), True, (0,0,0))
+
             sorteou = True
 
         window.blit(texto7,(25,522))
         window.blit(texto8,(25,545))
         window.blit(texto9,(25,570))
         
-        if time.time() - ti > 2:
+        if time.time() - ti > 2.5:
             
             texto10 = font.render('A roleta sorteou: {}'.format(sorteio), True,(0,0,0))
             window.blit(texto10,(25,597))
+            pygame.draw.rect(window,(255,255,255), pygame.Rect(25,570,525,25))
 
         else:
             if time.time() % 1 > 0.5:
                 pygame.draw.rect(window,(0,0,0),(229,583,3,3),0)
+        
+        if time.time() - ti > 4:
+            window.blit(texto11,(700,522))
+            texto12 = font.render('Novo saldo: {}'.format(saldo), True, (0,0,0))
+            window.blit(texto12,(700, 545))
+
+
 
               
 
