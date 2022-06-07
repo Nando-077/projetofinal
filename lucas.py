@@ -7,7 +7,6 @@ pygame.init()
 # ----- Variáveis
 choice_cn = "" 
 choice_a = ''
-choice_cn = "" 
 start = ''
 saldo = 1000
 i = 0
@@ -125,10 +124,7 @@ while game:
                 ti = time.time()
 
             else:
-                VOP += event.unicode
-                    
-    
-                    
+                VOP += event.unicode                                        
 
     # ----- Gera saídas
     window.fill((255, 255, 255))  # Preenche com a cor branca
@@ -217,6 +213,7 @@ while game:
             pygame.draw.rect(window,(255,255,255), pygame.Rect(25,570,525,25))
 
         else:
+            
             if time.time() % 1 > 0.5:
                 pygame.draw.rect(window,(0,0,0),(229,583,3,3),0)
         
@@ -224,16 +221,6 @@ while game:
             window.blit(texto11,(700,522))
             texto12 = font.render('Novo saldo: {}'.format(saldo), True, (0,0,0))
             window.blit(texto12,(700, 545))
-
-
-
-              
-
-
-        
-        
-
-
 
     # ----- Atualiza estado do jogo
     pygame.display.update()  # Mostra o novo frame para o jogador
