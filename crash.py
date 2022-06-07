@@ -351,14 +351,12 @@ def crash (saldo):
                 window.blit(texto9,(25,570))
                 window.blit(texto10,(25,597))
 
-        
-        return (saldo)
-
         # ----- Atualiza estado do jogo
         pygame.display.update()  # Mostra o novo frame para o jogador
+    
 
     # ===== Finalização =====
     pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
 
-    
+    return (saldo)
 
