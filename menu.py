@@ -1,7 +1,7 @@
 import pygame
 
 from crash import crash
-from lucas import roleta
+import lucas
 
 pygame.init()
 
@@ -32,10 +32,12 @@ while game:
 
             if event.key == pygame.K_1:  #nando
                 crash(saldo)
+                
 
 
             elif event.key == pygame.K_2:  #japa
-                roleta(saldo)
+                lucas.roleta_1(saldo)
+                
 
 
 
