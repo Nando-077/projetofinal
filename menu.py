@@ -15,6 +15,11 @@ def menu():
 
     game = True
 
+    crash_00 = pygame.image.load('crash.jpeg').convert_alpha()
+    roleta_00 = pygame.image.load('roleta.jpeg').convert_alpha()
+    window.blit(crash_00, (100,225))
+    window.blit(roleta_00, (50,225))
+
 
     #Texto
     font = pygame.font.SysFont(None, 48)
