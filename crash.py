@@ -46,9 +46,8 @@ def crash (saldo):
     base2 = pygame.transform.scale(base1,(1000,150))
 
     # Fontes
-    font = pygame.font.SysFont(None, 25)
-    font2 = pygame.font.SysFont(None,22)
-    titulo = pygame.font.SysFont(None,28)
+    font = pygame.font.SysFont(None, 27)
+    font2 = pygame.font.SysFont(None,24)
 
     #ajustando as imagens
     carro1 = pygame.transform.scale(carro1, (100, 50))
