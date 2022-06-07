@@ -6,6 +6,7 @@ def crash (saldo):
     import random
     import time
     import os
+    from menu import menu
     #from pyrsistent import*
 
     pygame.init()
@@ -140,6 +141,9 @@ def crash (saldo):
                     girando = True
                     sorteou = False
                     ti = time.time()
+                
+                elif event.key == pygame.K_LSHIFT:
+                    menu()
 
                 else:
                     VOP1 += event.unicode
