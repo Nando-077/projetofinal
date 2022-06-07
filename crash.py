@@ -1,6 +1,12 @@
 import pygame
+import numpy as np
+import random
 
 pygame.init()
+
+#variaves
+saldo = 1000
+
 
 WIDTH = 1000
 HEIGHT = 700
@@ -74,11 +80,9 @@ pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
 
 
 
-import numpy as np
-import random
 
-#variaves
-saldo = 1000
+
+
 
 
 #criando a lista de numeros do grafico
