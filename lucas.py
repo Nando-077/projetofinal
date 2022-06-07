@@ -127,7 +127,7 @@ def roleta_1 (saldo):
                     ti = time.time()
 
                 elif event.key == pygame.K_LSHIFT:
-                    menu()
+                    menu(saldo)
 
                 else:
                     VOP += event.unicode
