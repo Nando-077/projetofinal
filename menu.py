@@ -31,13 +31,13 @@ def menu():
             if event.type == pygame.KEYDOWN:
 
                 if event.key == pygame.K_1:  #nando
-                    crash(saldo)
+                    saldo = crash(saldo)
                     
 
 
                 elif event.key == pygame.K_2:  #japa
                     import lucas
-                    lucas.roleta_1(saldo)
+                    saldo = lucas.roleta_1(saldo)
                     
 
 
