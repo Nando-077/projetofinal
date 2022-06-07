@@ -12,7 +12,6 @@ def roleta_1 (saldo):
     choice_a = ''
     choice_cn = "" 
     start = ''
-    saldo = 1000
     i = 0
     contador = 0
     c = 0
