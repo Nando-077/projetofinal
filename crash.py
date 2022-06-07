@@ -143,7 +143,7 @@ def crash (saldo):
                     ti = time.time()
                 
                 elif event.key == pygame.K_LSHIFT:
-                    menu()
+                    menu(saldo)
 
                 else:
                     VOP1 += event.unicode
