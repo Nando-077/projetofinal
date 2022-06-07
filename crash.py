@@ -9,13 +9,13 @@ pygame.display.set_caption('Jogo')
 
 game = True
 
-image = pygame.image.load('img/rua real.png').convert_alpha()
-carro1 = pygame.image.load('img/carrinho 1.png').convert_alpha()
-policia = pygame.image.load('img/carrinho 2.png').convert_alpha()
-carro3 = pygame.image.load('img/carrinho 3.png').convert_alpha()
-meucarro = pygame.image.load('img/meu carro.png').convert_alpha()
-explosao = pygame.image.load('img/explosão.png').convert_alpha()
-chegada = pygame.image.load('img/chegada.png').convert_alpha()
+image = pygame.image.load('rua real.png').convert_alpha()
+carro1 = pygame.image.load('carrinho 1.png').convert_alpha()
+policia = pygame.image.load('carrinho 2.png').convert_alpha()
+carro3 = pygame.image.load('carrinho 3.png').convert_alpha()
+meucarro = pygame.image.load('meu carro.png').convert_alpha()
+explosao = pygame.image.load('explosão.png').convert_alpha()
+chegada = pygame.image.load('chegada.png').convert_alpha()
 
 #Texto
 font = pygame.font.SysFont(None, 48)
@@ -40,7 +40,7 @@ while game:
 
     #carrinhos
     carro1 = pygame.transform.scale(carro1, (100, 50))
-    carro2 = pygame.transform.scale(carro2, (100, 50))
+    policia = pygame.transform.scale(policia, (100, 50))
     carro3 = pygame.transform.scale(carro3, (100, 50))
 
     #fila 1
