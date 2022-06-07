@@ -54,6 +54,10 @@ def menu():
         window.blit(crash_00, (550,200))
         window.blit(roleta_00, (50,200))
 
+        blase = pygame.image.load('crash.jpeg').convert_alpha()
+        blase = pygame.transform.scale(blase,(250,250))
+        window.blit(blase, (10,10))
+
         font = pygame.font.SysFont(None, 50)
 
 
