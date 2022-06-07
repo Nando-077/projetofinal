@@ -1,4 +1,4 @@
-def menu():
+def menu(saldo):
     import pygame
 
     from crash import crash
@@ -6,7 +6,6 @@ def menu():
     pygame.init()
 
     #Variavel
-    saldo = 1000
 
     WIDTH = 1000
     HEIGHT = 700
