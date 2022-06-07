@@ -27,7 +27,7 @@ def crash (saldo):
     WIDTH = 1000
     HEIGHT = 700
     window = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption('Jogo')
+    pygame.display.set_caption('crash')
 
     game = True
     cont = True
@@ -65,7 +65,7 @@ def crash (saldo):
 
     #Texto
     font = pygame.font.SysFont(None, 45)
-    quit_ = font.render('RETURN', True, (0, 0, 0))
+    quit_ = font.render('MENU (shift)', True, (0, 0, 0))
 
     #------------- Textos
     text0 = font.render('Quanto o carro vai andar?', True, (0, 0, 0))
@@ -167,7 +167,7 @@ def crash (saldo):
         # Botão de quit
         cor = (255, 255, 255)
         cor_l = (20, 20, 20)
-        vertices_q = [(10, 10), (10, 50), (200, 50), (200, 10)]
+        vertices_q = [(10, 10), (10, 120), (200, 120), (200, 10)]
         pygame.draw.polygon(window, cor, vertices_q)
         window.blit(quit_, (40, 15))
         verticess = [(0,700), (0, 520), (1000, 520), (1000, 700)]
