@@ -1,3 +1,77 @@
+import pygame
+
+pygame.init()
+
+WIDTH = 1000
+HEIGHT = 700
+window = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Jogo')
+
+game = True
+
+image = pygame.image.load('img/rua real.png').convert_alpha()
+carro1 = pygame.image.load('img/carrinho 1.png').convert_alpha()
+policia = pygame.image.load('img/carrinho 2.png').convert_alpha()
+carro3 = pygame.image.load('img/carrinho 3.png').convert_alpha()
+meucarro = pygame.image.load('img/meu carro.png').convert_alpha()
+explosao = pygame.image.load('img/explosão.png').convert_alpha()
+chegada = pygame.image.load('img/chegada.png').convert_alpha()
+
+#Texto
+font = pygame.font.SysFont(None, 48)
+quit_ = font.render('RETURN', True, (0, 0, 0))
+
+
+while game:
+    # ----- Trata eventos
+    for event in pygame.event.get():
+        # ----- Verifica consequências
+        if event.type == pygame.QUIT:
+            game = False
+
+    # posição do mouse
+    mx, my = pygame.mouse.get_pos()
+
+    # ----- Gera saídas
+    window.fill((50, 255, 50))
+    image = pygame.transform.scale(image, (WIDTH, HEIGHT))
+    window.blit(image, (0,0))
+
+
+    #carrinhos
+    carro1 = pygame.transform.scale(carro1, (100, 50))
+    carro2 = pygame.transform.scale(carro2, (100, 50))
+    carro3 = pygame.transform.scale(carro3, (100, 50))
+
+    #fila 1
+    window.blit(carro3, (50,225))
+    window.blit(carro1, (500,225))
+    #fila 2
+    window.blit(carro1, (100,290))
+    window.blit(carro3, (700,290))
+    #fila 3
+    window.blit(carro1, (75,370))
+    window.blit(carro1, (500,370))
+    #fila 4
+    window.blit(carro1, (230,450))
+    window.blit(carro1, (750,450))
+    # Botão de quit
+    cor = (255, 255, 255)
+    cor_l = (20, 20, 20)
+    vertices_q = [(10, 10), (10, 50), (200, 50), (200, 10)]
+    pygame.draw.polygon(window, cor, vertices_q)
+    window.blit(quit_, (40, 15))
+    verticess = [(0,700), (0, 520), (1000, 520), (1000, 700)]
+    pygame.draw.polygon(window, cor_l, verticess)
+
+    # ----- Atualiza estado do jogo
+    pygame.display.update()  # Mostra o novo frame para o jogador
+
+# ===== Finalização =====
+pygame.quit()  # Função do PyGame que finaliza os recursos utilizados
+
+
+
 import numpy as np
 import random
 
