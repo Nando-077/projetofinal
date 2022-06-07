@@ -15,11 +15,6 @@ def menu():
 
     game = True
 
-    crash_00 = pygame.image.load('crash.jpeg').convert_alpha()
-    roleta_00 = pygame.image.load('roleta.jpeg').convert_alpha()
-    window.blit(crash_00, (100,225))
-    window.blit(roleta_00, (50,225))
-
 
     #Texto
     font = pygame.font.SysFont(None, 48)
@@ -52,11 +47,10 @@ def menu():
 
         # ----- Gera saídas
         window.fill((20, 20, 20))
-        verticess_2 = [(25,100), (25, 600), (450, 600), (450, 100)]
-        verticess_3 = [(550,100), (550, 600), (975, 600), (975, 100)]
-        cor_l = (255, 255, 255)
-        pygame.draw.polygon(window, cor_l, verticess_2)
-        pygame.draw.polygon(window, cor_l, verticess_3)
+        crash_00 = pygame.image.load('crash.jpeg').convert_alpha()
+        roleta_00 = pygame.image.load('roleta.jpeg').convert_alpha()
+        window.blit(crash_00, (100,225))
+        window.blit(roleta_00, (50,225))
 
         font = pygame.font.SysFont(None, 50)
         jogo_1 = font.render('1', True, (0, 0, 0))
