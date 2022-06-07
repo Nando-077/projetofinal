@@ -49,16 +49,13 @@ def menu():
         window.fill((20, 20, 20))
         crash_00 = pygame.image.load('crash.jpeg').convert_alpha()
         roleta_00 = pygame.image.load('roleta.jpeg').convert_alpha()
-        roleta_00 = pygame.transform.scale(roleta_00,(250,250))
-        crash_00 = pygame.transform.scale(crash_00,(250,250))
-        window.blit(crash_00, (600,225))
-        window.blit(roleta_00, (50,225))
+        roleta_00 = pygame.transform.scale(roleta_00,(400,400))
+        crash_00 = pygame.transform.scale(crash_00,(400,400))
+        window.blit(crash_00, (550,200))
+        window.blit(roleta_00, (50,200))
 
         font = pygame.font.SysFont(None, 50)
-        jogo_1 = font.render('1', True, (0, 0, 0))
-        jogo_3 = font.render('2', True, (0, 0, 0))
-        window.blit(jogo_1, (225, 100))
-        window.blit(jogo_3, (775, 100))
+
 
         quadrado = [(750,10), (750, 50), (975, 50), (975, 10)]
         cor_s = (255, 255, 0)
