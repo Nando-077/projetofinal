@@ -17,6 +17,14 @@ meucarro = pygame.image.load('meu carro.png').convert_alpha()
 explosao = pygame.image.load('explosão.png').convert_alpha()
 chegada = pygame.image.load('chegada.png').convert_alpha()
 
+#ajustando as imagens
+carro1 = pygame.transform.scale(carro1, (100, 50))
+policia = pygame.transform.scale(policia, (100, 50))
+carro3 = pygame.transform.scale(carro3, (100, 50))
+meucarro = pygame.transform.scale(meucarro, (150, 100))
+explosao = pygame.transform.scale(explosao, (150, 100))
+
+
 #Texto
 font = pygame.font.SysFont(None, 48)
 quit_ = font.render('RETURN', True, (0, 0, 0))
@@ -36,12 +44,6 @@ while game:
     window.fill((50, 255, 50))
     image = pygame.transform.scale(image, (WIDTH, HEIGHT))
     window.blit(image, (0,0))
-
-
-    #carrinhos
-    carro1 = pygame.transform.scale(carro1, (100, 50))
-    policia = pygame.transform.scale(policia, (100, 50))
-    carro3 = pygame.transform.scale(carro3, (100, 50))
 
     #fila 1
     window.blit(carro3, (50,225))
