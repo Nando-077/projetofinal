@@ -1,7 +1,6 @@
 import pygame
 
 from crash import crash
-import lucas
 
 pygame.init()
 
@@ -36,6 +35,7 @@ while game:
 
 
             elif event.key == pygame.K_2:  #japa
+                import lucas
                 lucas.roleta_1(saldo)
                 
 
