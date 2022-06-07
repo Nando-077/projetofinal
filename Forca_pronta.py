@@ -20,7 +20,7 @@ le = 0
 
 palavra_escolhida = list(seleciona_palavra)
 
-ganhou = False
+ganhou_jogo = False
 vidas = 5
 
 #Transforma o tamanho da palavra escolhida em traços
@@ -28,7 +28,7 @@ for t in range(0, len(palavra_escolhida)):
   linhas.append('_')
 
 
-while ganhou == False: 
+while ganhou_jogo == False: 
   acertou = 0 
   print(f'\n♥️{vidas}️\n')
   
@@ -48,12 +48,12 @@ while ganhou == False:
     
   #Input 
   letra = input('Letra: ').lower().strip()
-  savle = letra
+  key = letra
   print('\n')
   
   #Verificação
-  detect_espaço = savle.isspace()
-  detect_letra = savle.isalpha()
+  detect_espaço = key.isspace()
+  detect_letra = key.isalpha()
   
    #Tranforma os traços em letras
 
@@ -63,27 +63,39 @@ while ganhou == False:
       acertou = acertou + 1
  
 #Tira vida caso a letra não esteja na palavra
-  if acertou < 1 and savle not in letras_escolhidas:
+  if acertou < 1 and key not in letras_escolhidas:
     print('\n' * 5)
-    print(f"- A letra '{savle.upper()}' não está na palavra \n\n{'-1♥️':^37}","\n" * 6)   
+    print(f"- A letra '{key.upper()}' não está na palavra \n\n{'-1♥️':^37}","\n" * 6)   
     sleep(2)
     vidas -= 1    
-    letras_erradas += savle + ', '
+    letras_erradas += key + ', '
   else:
     print('\n' * 5)
   
+#Interface
+  if vida == 5:
+
+  elif vida == 4:
+
+  elif vida == 3:
+
+  elif vida ==2 :
+
+  elif vida ==1:
+
+
  #letras ja usadas
-  if savle in letras_escolhidas:
-    print(f"- A letra '{savle.upper()}' já foi usada", "\n" * 5)
+  if key in letras_escolhidas:
+    print(f"- A letra '{key.upper()}' já foi usada", "\n" * 5)
     sleep(3)
   else:  
-    letras_escolhidas.append(savle)
+    letras_escolhidas.append(key)
     
 #Decide vitória
-  if not '_' in linhas:
+  if not '_' in linhas: 
     for t in range(0, len(palavra_escolhida)):
       print(linhas[t].upper(), end=' ')
     print('\n')
 
     print(f'PARABÉNS VOCÊ GANHOU!! ACERTOU A PALAVRA: \n{seleciona_palavra.upper()}\n\n')
-    ganhou = True
+    ganhou_jogo = True
