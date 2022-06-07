@@ -46,8 +46,9 @@ def crash (saldo):
     base2 = pygame.transform.scale(base1,(1000,150))
 
     # Fontes
-    font = pygame.font.SysFont(None, 28)
-    font2 = pygame.font.SysFont(None,25)
+    font = pygame.font.SysFont(None, 25)
+    font2 = pygame.font.SysFont(None,22)
+    titulo = pygame.font.SysFont(None,28)
 
     #ajustando as imagens
     carro1 = pygame.transform.scale(carro1, (100, 50))
@@ -65,8 +66,8 @@ def crash (saldo):
 
 
     #Texto
-    font = pygame.font.SysFont(None, 45)
-    quit_ = font.render('MENU (shift)', True, (0, 0, 0))
+    titulo = pygame.font.SysFont(None, 45)
+    quit_ = titulo.render('MENU (shift)', True, (0, 0, 0))
 
     #------------- Textos
     text0 = font.render('Quanto o carro vai andar?', True, (0, 0, 0))
