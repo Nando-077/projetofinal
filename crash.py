@@ -144,6 +144,9 @@ def crash (saldo):
                 
                 elif event.key == pygame.K_LSHIFT:
                     menu(saldo)
+                elif event.key == pygame.K_k:
+                    from lucas import roleta_1
+                    roleta_1(saldo)
 
                 else:
                     VOP1 += event.unicode
