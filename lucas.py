@@ -127,7 +127,7 @@ def roleta_1 (saldo):
                     menu(saldo)
 
                 elif event.key == pygame.K_k:
-                    saldo = roleta_1(saldo)
+                    roleta_1(saldo)
 
                 else:
                     VOP += event.unicode
