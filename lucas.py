@@ -18,6 +18,7 @@ def roleta_1 (saldo):
     lista = ['VERMELHO','PRETO']
     ganhou = ''
 
+
     # ----- Funções
 
     # ----- Gera tela principal
@@ -74,10 +75,7 @@ def roleta_1 (saldo):
     a1000 = font.render('1000', True,(0,0,0))
 
     # ===== Loop principal =====
-    while game:
-
-        if saldo < 0:
-            game = False   
+    while game: 
 
         # ----- Trata eventos
         for event in pygame.event.get():
@@ -230,6 +228,13 @@ def roleta_1 (saldo):
                 texto12 = font.render('Novo saldo: {}'.format(saldo), True, (0,0,0))
                 window.blit(texto12,(700, 545))
 
+                text_f = font2.render('Aperte R para jogar novamente', True,(0,0,0))
+                window.blit(text_f,(700,580))
+    
+                if event.type == pygame.KEYDOWN:
+                    if event.type == pygame.K_k:
+                        saldo = roleta_1(saldo)
+                        
 
 
                 
