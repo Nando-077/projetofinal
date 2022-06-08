@@ -60,11 +60,11 @@ def menu(saldo):
         font = pygame.font.SysFont(None, 50)
 
 
-        quadrado = [(750,10), (750, 50), (975, 50), (975, 10)]
+        quadrado = [(700,10), (700, 50), (975, 50), (975, 10)]
         cor_s = (255, 255, 0)
         pygame.draw.polygon(window, cor_s, quadrado)
         grana = font.render('saldo: {} '.format(saldo), True, (0, 0, 0))
-        window.blit(grana, (765, 20))
+        window.blit(grana, (740, 20))
         
 
         # ----- Atualiza estado do jogo
