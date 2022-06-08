@@ -353,6 +353,8 @@ def crash (saldo):
                 window.blit(texto8,(25,545))
                 window.blit(texto9,(25,570))
                 window.blit(texto10,(25,597))
+                text_f = font2.render('Aperte K para jogar novamente', True,(0,0,0))
+                window.blit(text_f,(700,580))
 
         # ----- Atualiza estado do jogo
         pygame.display.update()  # Mostra o novo frame para o jogador
