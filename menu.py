@@ -50,8 +50,8 @@ def menu(saldo):
         roleta_00 = pygame.image.load('roleta.jpeg').convert_alpha()
         roleta_00 = pygame.transform.scale(roleta_00,(400,400))
         crash_00 = pygame.transform.scale(crash_00,(400,400))
-        window.blit(crash_00, (550,200))
-        window.blit(roleta_00, (50,200))
+        window.blit(crash_00, (50,200))
+        window.blit(roleta_00, (550,200))
 
         blase = pygame.image.load('blase.png').convert_alpha()
         blase = pygame.transform.scale(blase,(250,250))
