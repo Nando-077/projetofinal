@@ -18,7 +18,6 @@ def roleta_1 (saldo):
     lista = ['VERMELHO','PRETO']
     ganhou = ''
 
-
     # ----- Funções
 
     # ----- Gera tela principal
@@ -127,6 +126,9 @@ def roleta_1 (saldo):
                 elif event.key == pygame.K_LSHIFT:
                     menu(saldo)
 
+                elif event.key == pygame.K_k:
+                    saldo = roleta_1(saldo)
+
                 else:
                     VOP += event.unicode
                         
@@ -228,14 +230,8 @@ def roleta_1 (saldo):
                 texto12 = font.render('Novo saldo: {}'.format(saldo), True, (0,0,0))
                 window.blit(texto12,(700, 545))
 
-                text_f = font2.render('Aperte R para jogar novamente', True,(0,0,0))
+                text_f = font2.render('Aperte K para jogar novamente', True,(0,0,0))
                 window.blit(text_f,(700,580))
-    
-                if event.type == pygame.KEYDOWN:
-                    if event.type == pygame.K_k:
-                        saldo = roleta_1(saldo)
-                        
-
 
                 
 
