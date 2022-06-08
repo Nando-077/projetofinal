@@ -54,7 +54,7 @@ def menu(saldo):
         window.blit(roleta_00, (550,200))
 
         blase = pygame.image.load('blase.png').convert_alpha()
-        blase = pygame.transform.scale(blase,(250,250))
+        blase = pygame.transform.scale(blase,(300,250))
         window.blit(blase, (10,10))
 
         font = pygame.font.SysFont(None, 50)

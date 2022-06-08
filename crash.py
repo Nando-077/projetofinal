@@ -271,7 +271,7 @@ def crash (saldo):
             
             if time.time() - ti > 2.5:
                 
-                texto10 = font.render('A roleta sorteou: {}'.format(sorteio), True,(0,0,0))
+                texto10 = font.render('o carro andou: {}'.format(sorteio), True,(0,0,0))
                 window.blit(texto10,(25,597))
                 #pygame.draw.rect(window,(255,255,255), pygame.Rect(25,570,525,25))
 
