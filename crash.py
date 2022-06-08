@@ -65,7 +65,7 @@ def crash (saldo):
 
 
     #Texto
-    titulo = pygame.font.SysFont(None, 45)
+    titulo = pygame.font.SysFont(None, 43)
     quit_ = titulo.render('MENU (shift)', True, (0, 0, 0))
 
     #------------- Textos
@@ -301,7 +301,7 @@ def crash (saldo):
                     # Botão de quit
                     cor = (255, 255, 255)
                     cor_l = (20, 20, 20)
-                    vertices_q = [(10, 10), (10, 50), (200, 50), (200, 10)]
+                    vertices_q = [(10, 10), (10, 70), (250, 70), (250, 10)]
                     pygame.draw.polygon(window, cor, vertices_q)
                     window.blit(quit_, (40, 15))
                     verticess = [(0,700), (0, 520), (1000, 520), (1000, 700)]
