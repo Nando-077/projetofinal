@@ -72,7 +72,7 @@ def crash (saldo):
     text0 = font.render('Quanto o carro vai andar?', True, (0, 0, 0))
     text1 = font.render('Quanto quer apostar?', True,(0,0,0))
     text2 = font.render('Seu saldo é: {}'.format( saldo), True,(0,0,0))
-    text3 = font2.render('|100 = (1)|  |200 = (2)|  |300 = (3)|  |400 = (4)|  |500 = (5)|  |600 = (6)|  |700 = (7)|  |800 = (8)|  |900 = (9)|  |1000 = (0)|', True, (0,0,0))
+    text3 = font2.render('|100 = (A)|  |200 = (B)|  |300 = (C)|  |400 = (D)|  |500 = (E)|  |600 = (F)|  |700 = (G)|  |800 = (H)|  |900 = (I)|  |1000 = (J)|', True, (0,0,0))
     text6 = font.render('Aperte ESPAÇO para começar!', True,(0,0,0))
 
     #-------------- Números

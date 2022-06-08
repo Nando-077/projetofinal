@@ -1,5 +1,5 @@
 from menu import menu
 
-saldo = 1000
+saldo = 10000
 
 menu (saldo)
